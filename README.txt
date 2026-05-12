@@ -1,7 +1,7 @@
 DASHBOARD E-COMMERCE - GUIA RAPIDA
 
 Archivo principal:
-- PutoNicolas.html
+- index.html
 
 Archivos importantes:
 - style.css: aspecto visual del dashboard.
