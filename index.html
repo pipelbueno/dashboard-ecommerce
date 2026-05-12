@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Dashboard E-commerce</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+  <header class="page-header">
+    <div>
+      <p class="eyebrow">Trabajo de visualizacion de datos</p>
+      <h1>Dashboard E-commerce</h1>
+      <p class="subtitle">Panel web inspirado en el modelo de PowerBI </p>
+    </div>
+
+    <div class="authors-card">
+      <p class="authors-title">Autores</p>
+      <p>Felipe Salazar - fsalazarmol</p>
+      
+    </div>
+  </header>
+
+  <main class="dashboard">
+
+    <section class="filters-card">
+      <div>
+        <h2>Filtros del panel</h2>
+        <p>Estos filtros actualizan los KPIs y los graficos.</p>
+      </div>
+
+      <div class="filters">
+        <label>
+          Año
+          <select id="filtroAnio">
+            <option value="todos">Todos</option>
+          </select>
+        </label>
+
+        <label>
+          Canal de compra
+          <select id="filtroCanal">
+            <option value="todos">Todos</option>
+          </select>
+        </label>
+      </div>
+    </section>
+
+    <section class="kpi-grid">
+      <article class="kpi-card purple">
+        <p>Ingresos totales</p>
+        <h3 id="kpiIngresos">-</h3>
+      </article>
+
+      <article class="kpi-card green">
+        <p>Total pedidos</p>
+        <h3 id="kpiPedidos">-</h3>
+      </article>
+
+      <article class="kpi-card orange">
+        <p>Clientes activos</p>
+        <h3 id="kpiClientes">-</h3>
+      </article>
+
+      <article class="kpi-card red">
+        <p>Tasa devolucion</p>
+        <h3 id="kpiDevolucion">-</h3>
+      </article>
+
+      <article class="kpi-card blue">
+        <p>Rating medio</p>
+        <h3 id="kpiRating">-</h3>
+      </article>
+    </section>
+
+    <section class="charts-grid">
+
+      <article class="chart-card wide">
+        <div class="chart-title-row">
+          <div>
+            <h2>Total de pedidos por mes - Canvas JS - fsalazarmol</h2>
+            <p>Cuenta los pedidos usando la columna FechaPedido.</p>
+          </div>
+        </div>
+        <canvas id="canvasPedidosMes" width="900" height="420"></canvas>
+      </article>
+
+      <article class="chart-card wide">
+        <div class="chart-title-row">
+          <div>
+            <h2>Ingresos por categoria - SVG JS - fsalazarmol</h2>
+            <p>Une detallePedidos con productos usando ProductID.</p>
+          </div>
+        </div>
+        <svg id="svgIngresosCategoria" width="900" height="420"></svg>
+      </article>
+
+      <article class="chart-card">
+        <div class="chart-title-row">
+          <div>
+            <h2>Pedidos por canal - Chart.js - fsalazarmol</h2>
+            <p>Compara App y Web.</p>
+          </div>
+        </div>
+        <canvas id="chartCanalCompra" width="440" height="360"></canvas>
+      </article>
+
+      <article class="chart-card">
+        <div class="chart-title-row">
+          <div>
+            <h2>Motivos de devolucion - D3.js - fsalazarmol</h2>
+            <p>Ordena las causas de devolucion de mayor a menor.</p>
+          </div>
+        </div>
+        <div id="d3MotivosDevolucion"></div>
+      </article>
+
+    </section>
+
+    <section class="conclusions-card">
+      <h2>Conclusiones y recomendaciones</h2>
+      <ul>
+        <li>La seccion de Electronica concentra la parte mas importante de los ingresos, por lo que el negocio depende bastante de esta categoria.</li>
+        <li>La App genera mas pedidos que la Web, lo que sugiere que el canal movil es clave para la tienda.</li>
+        <li>Las devoluciones se concentran en motivos relacionados con calidad, embalaje y retrasos.</li>
+        <li>Se recomienda reforzar control de calidad, embalaje y logistica en las zonas con mas incidencias.</li>
+      </ul>
+    </section>
+
+  </main>
+
+  <!-- Datos convertidos desde los JSON del ZIP -->
+  <script src="datos/clientesData.js"></script>
+  <script src="datos/productosData.js"></script>
+  <script src="datos/pedidosData.js"></script>
+  <script src="datos/detallePedidosData.js"></script>
+  <script src="datos/devolucionesData.js"></script>
+  <script src="datos/reviewsData.js"></script>
+
+  <!-- Librerias externas -->
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <script src="https://d3js.org/d3.v7.min.js"></script>
+
+  <!-- Logica del dashboard -->
+  <script src="script.js"></script>
+
+</body>
+</html>
